@@ -1,4 +1,4 @@
-FROM jenkins:2.7.4
+FROM jenkins:latest
 
 # Configure Jenkins
 COPY config/*.xml $JENKINS_HOME/
@@ -34,6 +34,8 @@ RUN apt-get update -qq && \
     echo deb https://apt.dockerproject.org/repo debian-jessie main > /etc/apt/sources.list.d/docker.list && \
     apt-get update -qq && \
     apt-get install -qqy docker-engine && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
     usermod -aG docker jenkins && \
     chown -R jenkins:jenkins $JENKINS_HOME/
 

@@ -35,7 +35,6 @@ RUN apt-get update -qq && \
     apt-get update -qq && \
     apt-get install -qqy docker-engine && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
     usermod -aG docker jenkins && \
     chown -R jenkins:jenkins $JENKINS_HOME/
 

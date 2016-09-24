@@ -8,6 +8,7 @@ COPY config/executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groo
 RUN /usr/local/bin/install-plugins.sh \
     ant \
     ansible \
+    bitbucket \
     gradle \
     xunit \
     workflow-aggregator \
@@ -21,6 +22,7 @@ RUN /usr/local/bin/install-plugins.sh \
     email-ext \
     github-organization-folder \
     purge-job-history \
+    windows-slaves \
     simple-theme-plugin
 
 USER root

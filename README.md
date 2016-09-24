@@ -1,10 +1,10 @@
-# Jenkins CI 
+# Jenkins
 
 [![layers](https://images.microbadger.com/badges/image/raduporumb/jenkins.svg)](https://microbadger.com/images/raduporumb/jenkins)
 
-This is a Jenkins CI Server v2.7.4 image suitable for running CD work-flows inside disposable containers using Jenkins Docker Pipeline and the Docker daemon present on the host system. Note that this is not a "Docker in Docker" Jenkins setup. This image requires the Docker socket to be mounted inside the Jenkins container. All the Docker commands issued by the Jenkins Docker Pipeline will be executed on the host system. This image also has Ansible installed.
+This is a Jenkins image suitable for running CD work-flows inside disposable containers using Jenkins Docker Pipeline and the Docker daemon present on the host system. Note that this is not a "Docker in Docker" Jenkins setup. This image requires the Docker socket to be mounted inside the Jenkins container. All the Docker commands issued by the Jenkins Docker Pipeline will be executed on the host system. This image also has Ansible installed.
 
-### Running Jenkins CI
+### Running Jenkins
 
 First, you will need to set up persistent storage for Jenkins and the Ansible inventory.
 
@@ -26,7 +26,7 @@ mkdir $ANSIBLE_INVENTORY
 chown -R 1000 $ANSIBLE_INVENTORY
 ```
 
-Run Jenkins container by mounting the Docker socket and jenkins_home directory:
+Run Jenkins container by mounting the Docker socket, jenkins_home directory and ansible inventory:
 
 ```
 docker run -d --name jenkins \ 
@@ -58,6 +58,7 @@ Pre-installed plugins:
 * Ant
 * Ansible
 * Build Timeout
+* Bitbucket
 * GitHub
 * Gradle
 * Pipeline
@@ -69,4 +70,5 @@ Pre-installed plugins:
 * SSH Slaves
 * Timestamper
 * Workspace Cleanup
+* Windows Slaves
 * Xunit
